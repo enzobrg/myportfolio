@@ -4,6 +4,14 @@ import logo from '../assets/img/logo.png';
 import navIcon1 from '../assets/img/nav-icon1.png';
 import navIcon2 from '../assets/img/nav-icon2.png';
 import navIcon3 from '../assets/img/nav-icon3.png';
+import navIcon4 from '../assets/img/nav-icon4.png';
+import navIcon6 from '../assets/img/nav-icon6.png';
+import { HashLink } from 'react-router-hash-link';
+import {
+    BrowserRouter as Router
+} from "react-router-dom";
+
+
 
 export const NavBar = () => {
 
@@ -29,6 +37,7 @@ export const NavBar = () => {
     }
 
     return (
+        <Router>
             <Navbar expand="md" className={scrolled ? "scrolled" : ""}>
                 <Container>
                     <Navbar.Brand href="/">
@@ -45,14 +54,19 @@ export const NavBar = () => {
                         </Nav>
                         <span className="navbar-text">
               <div className="social-icon">
-                <a href="#"><img src={navIcon1} alt="" /></a>
-                <a href="#"><img src={navIcon2} alt="" /></a>
-                <a href="#"><img src={navIcon3} alt="" /></a>
+                  <a href="https://www.linkedin.com/in/enzo-bourgoin-webdev/" target="_blank"><img src={navIcon1} alt="linkedin" /></a>
+                  <a href="https://www.malt.fr/profile/enzobourgoin" target="_blank"><img src={navIcon6} alt="malt" /></a>
+                  <a href="https://www.buymeacoffee.com/enzobrg" target="_blank"><img src={navIcon3} alt="buymeacoffee" /></a>
+                  <a href="https://github.com/enzobrg" target="_blank"><img src={navIcon2} alt="github" /></a>
+                  <a href="https://tryhackme.com/p/InspecteurGadget" target="_blank"><img src={navIcon4} alt="tryhackme" /></a>
               </div>
-                <button className="vvd"><span>Connectons-nous !</span></button>
-            </span>
-                    </Navbar.Collapse>
-                </Container>
-            </Navbar>
+                <HashLink to='#connect'>
+                    <button className="vvd"><span>Contactez-moi !</span></button>
+                </HashLink>
+                </span>
+            </Navbar.Collapse>
+        </Container>
+    </Navbar>
+</Router>
     )
 }
