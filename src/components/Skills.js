@@ -1,6 +1,8 @@
-import meter1 from "../assets/img/meter1.svg";
-import meter2 from "../assets/img/meter2.svg";
-import meter3 from "../assets/img/meter3.svg";
+import php from "../assets/img/php-logo.png";
+import nodejs from "../assets/img/nodejs.png";
+import react from "../assets/img/reactjs.png";
+import symfony from "../assets/img/symfony.png";
+import mysql from "../assets/img/nav-icon5.png";
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 
@@ -31,23 +33,27 @@ export const Skills = () => {
                     <div className="col-12">
                         <div className="skill-bx wow zoomIn">
                             <h2>Compétences</h2>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.<br></br> Lorem Ipsum has been the industry's standard dummy text.</p>
+                            <p>Voici un aperçu des langages et frameworks avec lesquels j'ai pu travailler à travers mes différentes expériences.</p>
                             <Carousel responsive={responsive} infinite={true} className="owl-carousel owl-theme skill-slider">
                                 <div className="item">
-                                    <img src={meter1} alt="Image" />
+                                    <img src={php} alt="Image" />
                                     <h5>PHP</h5>
                                 </div>
                                 <div className="item">
-                                    <img src={meter2} alt="Image" />
-                                    <h5>Node.js</h5>
+                                    <img src={symfony} alt="Image" />
+                                    <h5>Symfony</h5>
                                 </div>
                                 <div className="item">
-                                    <img src={meter3} alt="Image" />
+                                    <img src={react} alt="Image" />
                                     <h5>React</h5>
                                 </div>
                                 <div className="item">
-                                    <img src={meter1} alt="Image" />
-                                    <h5>Symfony</h5>
+                                    <img src={nodejs} alt="Image" />
+                                    <h5>Node.js</h5>
+                                </div>
+                                <div className="item">
+                                    <img src={mysql} alt="Image" />
+                                    <h5>MySQL</h5>
                                 </div>
                             </Carousel>
                         </div>

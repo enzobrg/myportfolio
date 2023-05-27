@@ -2,41 +2,48 @@ import { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { ArrowRightCircle } from "react-bootstrap-icons";
 import headerImg from '../assets/img/header-img.png';
+import TrackVisibility from 'react-on-screen';
+import 'animate.css';
 
 export const Banner = () => {
     const [loopNum, setLoopNum] = useState(0);
     const [isDeleting, setIsDeleting] = useState(false);
-    const toRotate = ["Développeur backend", "Développeur frontend", "Cybersécurité"];
     const [text, setText] = useState('');
-    const [delta, setDelta] = useState(300 - Math.random() * 100)
+    const [delta, setDelta] = useState(300 - Math.random() * 100);
+    const [index, setIndex] = useState(1);
+    const toRotate = ["Développeur backend", "Développeur fullstack", "Pentester en autodidacte"];
     const period = 2000;
 
     useEffect(() => {
         let ticker = setInterval(() => {
             tick();
-        }, delta)
+        }, delta);
 
-        return () => { clearInterval(ticker)};
+        return () => { clearInterval(ticker) };
     }, [text])
 
     const tick = () => {
         let i = loopNum % toRotate.length;
         let fullText = toRotate[i];
-        let updatedText  = isDeleting ? fullText.substring(0, text.length - 1) : fullText.substring(0, text.length + 1);
+        let updatedText = isDeleting ? fullText.substring(0, text.length - 1) : fullText.substring(0, text.length + 1);
 
         setText(updatedText);
 
         if (isDeleting) {
-            setDelta(prevDelta =>prevDelta /2)
+            setDelta(prevDelta => prevDelta / 2);
         }
 
-        if (isDeleting && updatedText === fullText) {
+        if (!isDeleting && updatedText === fullText) {
             setIsDeleting(true);
+            setIndex(prevIndex => prevIndex - 1);
             setDelta(period);
         } else if (isDeleting && updatedText === '') {
             setIsDeleting(false);
             setLoopNum(loopNum + 1);
-            setDelta(500)
+            setIndex(1);
+            setDelta(500);
+        } else {
+            setIndex(prevIndex => prevIndex + 1);
         }
     }
 
@@ -45,13 +52,26 @@ export const Banner = () => {
             <Container>
                 <Row className="align-items-center">
                     <Col xs={12} md={6} xl={7}>
-                        <span className="tagline">Bienvenue sur mon portfolio</span>
-                        <h1>('EnzoB.')<span className="wrap">{text}</span></h1>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
-                        <button onClick={() => console.log('connect')}>Connectons-nous <ArrowRightCircle size={25}/></button>
-                    </Col>
+                        <TrackVisibility>
+                        {({ isVisible }) =>
+                            <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
+                                <span className="tagline">Bienvenue sur mon portfolio</span>
+                                <h1>{`Salut ! Moi c'est Enzo B.`} <span className="txt-rotate" dataPeriod="1000" data-rotate='[ "Développeur backend", "Développeur fullstack", "Pentester en autodidacte" ]'><span className="wrap">{text}</span></span></h1>
+                                    <p>Développeur depuis 2 ans, le code me passionne.
+                                    J'ai choisi d'être développeur car depuis petit, l'informatique et les jeux vidéos m'intéressent fortement.
+                                    J'aime le code car j'ai de grandes capacités creative et imaginative, et j'adore passer du temps derrière mon pc à trouver une solution à mon problème.
+                                    </p>
+                                <a href="#connect" className="nav-link"><button className="vvd" onClick={() => console.log('connect')}>Contactez-moi ! <ArrowRightCircle size={25} /></button></a>
+                            </div>}
+                    </TrackVisibility>
+                        </Col>
                     <Col xs={12} md={6} xl={5}>
-                        <img src={headerImg} alt="Headder img"/>
+                        <TrackVisibility>
+                            {({ isVisible }) =>
+                                <div className={isVisible ? "animate__animated animate__zoomIn" : ""}>
+                                    <img src={headerImg} alt="Header Img"/>
+                                </div>}
+                        </TrackVisibility>
                     </Col>
                 </Row>
             </Container>
