@@ -9,7 +9,6 @@
     "animate.css": "^4.1.1",
     "bootstrap": "^5.2.3",
     "cors": "^2.8.5",
-    "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "nodemailer": "^6.9.2",
     "react": "^18.2.0",
@@ -49,10 +48,5 @@
     "react-multi-carousel": "^2.8.4",
     "react-router-dom": "^6.11.2",
     "react-router-hash-link": "^2.4.3"
-  },
-  "browser": {
-    "fs": false,
-    "os": false,
-    "path": false
   }
 }
