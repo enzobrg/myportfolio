@@ -48,5 +48,10 @@
     "react-multi-carousel": "^2.8.4",
     "react-router-dom": "^6.11.2",
     "react-router-hash-link": "^2.4.3"
+  },
+  "browser": {
+    "fs": false,
+    "os": false,
+    "path": false
   }
 }
