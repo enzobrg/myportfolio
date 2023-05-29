@@ -8,6 +8,8 @@ const dotenv = require("dotenv")
 
 dotenv.config()
 
+console.log(process.env.PASSWORD)
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
