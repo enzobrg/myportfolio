@@ -59,7 +59,7 @@ export const Banner = () => {
                                 <h1>{`Salut ! Moi c'est Enzo B.`} <span className="txt-rotate" dataPeriod="1000" data-rotate='[ "Développeur backend", "Développeur fullstack", "Pentester en autodidacte" ]'><span className="wrap">{text}</span></span></h1>
                                     <p>Développeur depuis 2 ans, le code me passionne.
                                     J'ai choisi d'être développeur car depuis petit, l'informatique et les jeux vidéos m'intéressent fortement.
-                                    J'aime le code car j'ai de grandes capacités creative et imaginative, et j'adore passer du temps derrière mon pc à trouver une solution à mon problème.
+                                    J'aime le code car j'ai de grandes capacités creatives et imaginatives, et j'adore passer du temps derrière mon pc à trouver une solution à mon problème.
                                     </p>
                                 <a href="#connect" className="nav-link"><button className="vvd" onClick={() => console.log('connect')}>Contactez-moi ! <ArrowRightCircle size={25} /></button></a>
                             </div>}
